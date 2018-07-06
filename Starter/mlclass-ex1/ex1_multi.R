@@ -96,7 +96,7 @@ theta <- rep(0,3)
 gDM <- gradientDescentMulti(X, y, theta, alpha , num_iters)
 theta <- gDM$theta
 J_history <- gDM$J_history
-rm(gDM)
+# rm(gDM)
 
 # Plot the convergence graph
 plot(1:length(J_history), J_history, type="l", col="blue", lwd=2, cex=.1,
@@ -111,10 +111,15 @@ print(theta)
 # Recall that the first column of X is all-ones. Thus, it does
 # not need to be normalized.
 
+pred_norm <- c(1,
+               (1650 - mu[1]) / sigma[1],
+               (3 - mu[2]) / sigma[2])
+price <- sum(theta * pred_norm)
 
 # ------------------------------------------------------------
 
 cat(sprintf('Predicted price of a 1650 sq-ft, 3 br house (using gradient descent):\n $%f\n', price))
+
 cat('Program paused. Press enter to continue.\n')
 line <- readLines(con = stdin(),1)
 
@@ -175,10 +180,10 @@ theta <- normalEqn(X, y)
 cat('Theta computed from the normal equations: \n')
 print(theta)
 
-
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ---------------------- YOUR CODE HERE ----------------------
 
+price <- sum(theta * c(1, 1650, 3))
 
 # ------------------------------------------------------------
 
