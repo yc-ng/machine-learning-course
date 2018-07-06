@@ -14,7 +14,9 @@ plotData <- function (x, y) {
   #       appear as red crosses. Furthermore, you can make the
   #       markers larger by using plot(..., cex=1.1). cex stands for character expansion
   
- 
+ plot(x, y, pch = 4, col = "red",
+      xlab = "Population of City in 10,000s",
+      ylab = "Profit in $10,000s")
   
   # ------------------------------------------------------------
   
