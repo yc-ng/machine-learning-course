@@ -13,6 +13,11 @@ predict <- function(theta, X) {
   #               You should set p to a vector of 0's and 1's
   #
   
-  p
+  # compute h
+  h <- sigmoid(X %*% theta)
+  # round to 0 or 1
+  p <- round(h)
+  
+  return(p)
   # ----------------------------------------------------
 }
